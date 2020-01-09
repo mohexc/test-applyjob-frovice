@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background-color: lightgray;
+        width: 80%;
+        margin: 10vh auto auto auto;
+        padding: 10px;
+      }
+
+      .header {
+        margin: 50px;
+        color: green;
+      }
+
+      .gallary {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        align-content: stretch;
+
+      }
+
+      img {
+        height: 150px;
+        width: auto;
+        margin: 2px;
+      }
+    </style>
+    <title>Css Test</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Home</h1>
+      <h3><a href="./bookRoom.html">Book room</a></h3>
+    </div>
+    <div class="container">
+      <div class="gallary"></div>
+    </div>
+
+
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+
+        let gallary = document.querySelector('.gallary')
+        const url = "https://picsum.photos/v2/list"
+        fetch(url).then((res) => res.json())
+          .then((data) => data.map((d) => {
+            let img = document.createElement('img')
+            img.src = d.download_url
+            gallary.appendChild(img)
+          }))
+      })
+
+    </script>
+  </body>
+
+</html>
